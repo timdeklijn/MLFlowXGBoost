@@ -1,7 +1,8 @@
 import logging
+import os
 import warnings
 
-import mlflow
+import mlflow.xgboost
 import numpy as np
 import pandas as pd
 import xgboost as xgb
@@ -71,3 +72,7 @@ if __name__ == "__main__":
             mlflow.log_metric(f"{num}_recall", report[num]["recall"])
             mlflow.log_metric(f"{num}_f1-score", report[num]["f1-score"])
         mlflow.log_metric("classification_error", classification_error)
+
+        model_path = os.path.join("xgboost_example", "models")
+        mlflow.xgboost.log_model(bst, model_path)
+        mlflow.xgboost.save_model(bst, model_path)
