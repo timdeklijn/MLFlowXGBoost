@@ -1,4 +1,4 @@
-MLFLOWXGBoost
+MLFlowXGBoost
 =============
 
 Practice with MLFLow and XGBoost.
