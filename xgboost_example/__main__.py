@@ -73,6 +73,6 @@ if __name__ == "__main__":
             mlflow.log_metric(f"{num}_f1-score", report[num]["f1-score"])
         mlflow.log_metric("classification_error", classification_error)
 
-        model_path = os.path.join("xgboost_example", "models")
+        model_path = os.path.join("models")
         mlflow.xgboost.log_model(bst, model_path)
         mlflow.xgboost.save_model(bst, model_path)
