@@ -1,5 +1,4 @@
 import logging
-import os
 import warnings
 
 import mlflow.xgboost
@@ -55,7 +54,9 @@ if __name__ == "__main__":
     }
     num_round = 500
 
-    with mlflow.start_run():
+    with mlflow.start_run() as run:
+
+        # print(mlflow.tracking.get_tracking_uri())
 
         logger.debug("Training model")
         bst = xgb.train(param, xg_train, num_round)
@@ -73,6 +74,5 @@ if __name__ == "__main__":
             mlflow.log_metric(f"{num}_f1-score", report[num]["f1-score"])
         mlflow.log_metric("classification_error", classification_error)
 
-        model_path = os.path.join("models")
-        mlflow.xgboost.log_model(bst, model_path)
-        mlflow.xgboost.save_model(bst, model_path)
+        artifact_location = "artifacts"
+        mlflow.xgboost.log_model(bst, artifact_path=artifact_location)
