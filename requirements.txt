@@ -19,7 +19,7 @@ joblib==0.14.1
 Mako==1.1.1
 MarkupSafe==1.1.1
 mlflow==1.6.0
-numpy==1.18.1
+numpy==1.22.0
 pandas==1.0.1
 prometheus-client==0.7.1
 prometheus-flask-exporter==0.12.1
