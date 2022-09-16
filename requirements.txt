@@ -16,7 +16,7 @@ idna==2.8
 itsdangerous==1.1.0
 Jinja2==2.11.1
 joblib==0.14.1
-Mako==1.1.1
+Mako==1.2.2
 MarkupSafe==1.1.1
 mlflow==1.6.0
 numpy==1.18.1
